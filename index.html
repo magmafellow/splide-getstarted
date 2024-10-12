@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="./reset.css">
   <link rel="stylesheet" href="./splide/dist/css/splide-core.min.css">
   <link rel="stylesheet" href="./splide/dist/css/themes/splide-default.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
@@ -14,11 +15,29 @@
     <div class="container">
       
       <section class="splide" aria-label="Splide Basic HTML Example">
+        <div class="splide__arrows">
+          <button class="splide__arrow splide__arrow--prev prev-arrow">
+            Prev
+          </button>
+          <button class="splide__arrow splide__arrow--next next-arrow">
+            Next
+          </button>
+        </div>
+        
         <div class="splide__track">
           <ul class="splide__list">
-            <li class="splide__slide">Slide 01</li>
-            <li class="splide__slide">Slide 02</li>
-            <li class="splide__slide">Slide 03</li>
+            <li class="splide__slide slide slide-01">Slide 01</li>
+            <li class="splide__slide slide slide-02">Slide 02</li>
+            <li class="splide__slide slide slide-03">Slide 03</li>
+            <li class="splide__slide slide slide-04">Slide 04</li>
+            <li class="splide__slide slide slide-05">Slide 05</li>
+            <li class="splide__slide slide slide-06">Slide 06</li>
+            <li class="splide__slide slide slide-07">Slide 07</li>
+            <li class="splide__slide slide slide-08">Slide 08</li>
+            <li class="splide__slide slide slide-09">Slide 09</li>
+            <li class="splide__slide slide slide-07">Slide 07</li>
+            <li class="splide__slide slide slide-08">Slide 08</li>
+            <li class="splide__slide slide slide-09">Slide 09</li>
           </ul>
         </div>
       </section>
@@ -27,9 +46,54 @@
   </div>
 
 
-  <script src="./splide/dist/js/splide.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js" integrity="sha256-FZsW7H2V5X9TGinSjjwYJ419Xka27I8XPDmWryGlWtw=" crossorigin="anonymous"></script>
   <script>
-    new Splide('.splide').mount()
+    const config = {
+      classes: {
+        prev: 'splide__arrow--prev prev-arrow',
+        next: 'splide__arrow--next next-arrow',
+      },
+      
+      type: 'slide',
+      // rewind: true,
+      speed: 300, // ms
+      // width: '50%',
+      // fixedWidth: '100px', // width for slide
+      // heightRatio: 0.5,
+      // start: 0,
+      perPage: 3,
+      perMove: 1,
+      // focus: 'center',
+      gap: '1em',
+      padding: {
+        right: '0em',
+        left: '0em',
+      },
+      arrows: true,
+      pagination: true,
+      // paginationDirection: 'ltr' | 'rtl' | 'ttb'
+      drag: true,
+      // dragMinThreshold: {
+      //   touch: 100,
+      //   mouse: 100,
+      // },
+      // flickPower: 500,
+      // autoplay: true,
+      // interval: 3000,
+      keyboard: true,
+      trimSpace: true,
+
+      breakpoints: {
+        1024: {
+          perPage: 2,
+        },
+        624: {
+          perPage: 1,
+        }
+      }
+    }
+    
+    new Splide('.splide', config).mount()
   </script>
 </body>
 </html>
